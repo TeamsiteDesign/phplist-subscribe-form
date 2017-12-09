@@ -1,13 +1,16 @@
 {
-  "name": "@stencil/starter",
-  "private": true,
+  "name": "phplist-subscribe-form",
   "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "description": "Allows users to subscribe to your phplist.",
+  "main": "dist/collection/index.js",
+  "types": "dist/collection/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
+  "browser": "dist/phplist-subscribe-form.js",
   "scripts": {
-    "build": "stencil build --prerender",
+    "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
@@ -15,8 +18,7 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/core": "next",
-    "@stencil/router": "latest"
+    "@stencil/core": "next"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
@@ -26,14 +28,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
+    "url": "git+https://github.com/blueleader07/phplist-subscribe-form"
   },
-  "author": "Ionic Team",
+  "author": "Sean McKeon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/blueleader07/phplist-subscribe-form"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
+  "homepage": "https://github.com/blueleader07/phplist-subscribe-form",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
