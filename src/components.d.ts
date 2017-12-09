@@ -64,8 +64,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppProfileAttributes extends HTMLAttributes {
-      
-        match?: MatchResults
+      match?: MatchResults;
     }
   }
 }
@@ -95,6 +94,36 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  PhplistSubscribeForm as PhplistSubscribeForm
+} from './components/phplist-subscribe-form/phplist-subscribe-form';
+
+declare global {
+  interface HTMLPhplistSubscribeFormElement extends PhplistSubscribeForm, HTMLElement {
+  }
+  var HTMLPhplistSubscribeFormElement: {
+    prototype: HTMLPhplistSubscribeFormElement;
+    new (): HTMLPhplistSubscribeFormElement;
+  };
+  interface HTMLElementTagNameMap {
+    "phplist-subscribe-form": HTMLPhplistSubscribeFormElement;
+  }
+  interface ElementTagNameMap {
+    "phplist-subscribe-form": HTMLPhplistSubscribeFormElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "phplist-subscribe-form": JSXElements.PhplistSubscribeFormAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface PhplistSubscribeFormAttributes extends HTMLAttributes {
       
     }
   }
