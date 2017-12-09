@@ -1,0 +1,35 @@
+{
+  "namespace": "phplist-subscribe-form",
+  "components": [
+    [
+      "phplist-subscribe-form",
+      [
+        "6cjcujet",
+        "rqh2f6a9"
+      ],
+      1,
+      [
+        [
+          "action",
+          1,
+          1,
+          2
+        ],
+        [
+          "el",
+          7
+        ],
+        [
+          "token",
+          1,
+          1,
+          2
+        ]
+      ],
+      1
+    ]
+  ],
+  "core": "phplist-subscribe-form.wxjqa4k7.js",
+  "coreSsr": "phplist-subscribe-form.bcn85hgc.js",
+  "corePolyfilled": "phplist-subscribe-form.hig7pdkw.js"
+}
