@@ -4,8 +4,8 @@
     [
       "phplist-subscribe-form",
       [
-        "6cjcujet",
-        "rqh2f6a9"
+        "phplist-subscribe-form",
+        null
       ],
       1,
       [
@@ -29,7 +29,6 @@
       1
     ]
   ],
-  "core": "phplist-subscribe-form.wxjqa4k7.js",
-  "coreSsr": "phplist-subscribe-form.bcn85hgc.js",
-  "corePolyfilled": "phplist-subscribe-form.hig7pdkw.js"
+  "core": "phplist-subscribe-form.core.js",
+  "coreSsr": "phplist-subscribe-form.core.ssr.js"
 }

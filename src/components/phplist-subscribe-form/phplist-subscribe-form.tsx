@@ -21,8 +21,13 @@ export class PhplistSubscribeForm {
     return this.el.querySelector("form");
   }
 
-  checkform(event){
-    event.preventDefault();
+  submit(){
+    if(this.checkform()){
+      this.getForm().submit();
+    }
+  }
+
+  checkform(){
     let isValid = true;
     if(!this.validateEmail()){
       isValid = false;
@@ -67,7 +72,7 @@ export class PhplistSubscribeForm {
               <input type="hidden" name="list[3]" value="signup"/>
               <input type="hidden" name="VerificationCodeX" value="" maxlength="20"/>
               <div class="submit-container">
-                <input class="submit-button" type="submit" name="subscribe" value="Subscribe" onClick={(event) => this.checkform(event)}/>
+                <button class="submit-button" type="submit" name="subscribe" value="Subscribe" onClick={() => this.checkform()}/>
               </div>
             </div>
           </form>

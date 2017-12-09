@@ -6,7 +6,8 @@ export declare class PhplistSubscribeForm {
     form: null;
     el: HTMLElement;
     getForm(): HTMLFormElement;
-    checkform(event: any): boolean;
+    submit(): void;
+    checkform(): boolean;
     validateEmail(): boolean;
     render(): JSX.Element;
 }
