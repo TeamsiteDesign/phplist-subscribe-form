@@ -30,7 +30,6 @@ declare global {
   namespace JSXElements {
     export interface PhplistSubscribeFormAttributes extends HTMLAttributes {
       action?: string;
-      token?: string;
     }
   }
 }

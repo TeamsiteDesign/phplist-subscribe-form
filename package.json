@@ -1,6 +1,6 @@
 {
   "name": "phplist-subscribe-form",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Allows users to subscribe to your phplist.",
   "main": "dist/collection/index.js",
   "types": "dist/collection/index.d.ts",

@@ -8,13 +8,12 @@ import { Component, Prop , Element, State } from '@stencil/core';
 export class PhplistSubscribeForm {
 
   @Prop() action: string;
-  @Prop() token: string;
 
   email: string;
   confirmEmail: string;
 
   error: string;
-  valid: boolean;
+  @State() valid: boolean;
 
   form: null;
 
@@ -81,7 +80,6 @@ export class PhplistSubscribeForm {
         <div class="container">
           <form method="post" name="subscribeform" action={this.action}>
             <div>
-              <input type="hidden" name="formtoken" value={this.token} />
               <div class="form-label">Email</div>
               <div class="form-body-box">
                 <input type="text" name="email" maxlength="40" value={this.email} onInput={() => this.changedEmail(event)}/>
@@ -96,9 +94,10 @@ export class PhplistSubscribeForm {
               </div>
               <input type="hidden" name="list[3]" value="signup"/>
               <input type="hidden" name="VerificationCodeX" value="" maxlength="20"/>
+              <input type="hidden" name="subscribe" value="Subscribe"/>
               <div class="alert alert-danger" style={{ display: this.valid ? 'none' : 'block' }}>{this.error}</div>
               <div class="submit-container">
-                <button class="submit-button" onClick={(event) => this.submit(event)}>Subscribe</button>
+                <button type="button" class="submit-button" onClick={(event) => this.submit(event)}>Subscribe</button>
               </div>
             </div>
           </form>

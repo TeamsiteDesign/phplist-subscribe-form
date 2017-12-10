@@ -1,7 +1,7 @@
 exports.config = {
     namespace: 'phplist-subscribe-form',
-    generateDistribution: false,
-    generateWWW: true,
+    generateDistribution: true,
+    generateWWW: false,
     bundles: [
       { components: ['phplist-subscribe-form'] }
     ]
