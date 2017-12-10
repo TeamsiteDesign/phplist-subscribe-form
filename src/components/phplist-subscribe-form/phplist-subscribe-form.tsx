@@ -1,4 +1,4 @@
-import { Component, Prop , Element } from '@stencil/core';
+import { Component, Prop , Element, State } from '@stencil/core';
 
 @Component({
   tag: 'phplist-subscribe-form',
@@ -13,42 +13,67 @@ export class PhplistSubscribeForm {
   email: string;
   confirmEmail: string;
 
+  error: string;
+  valid: boolean;
+
   form: null;
 
   @Element() el: HTMLElement;
 
   getForm(){
-    return this.el.querySelector("form");
+    return this.el.shadowRoot.querySelector("form");
   }
 
-  submit(){
-    if(this.checkform()){
+  submit(event){
+    event.preventDefault();
+    if(this.validate()){
       this.getForm().submit();
     }
   }
 
-  checkform(){
-    let isValid = true;
+  validate(){
+    this.valid = true;
+    this.error = '';
     if(!this.validateEmail()){
-      isValid = false;
+      this.valid = false;
     }
-    return isValid;
+    return this.valid;
   }
 
   validateEmail(){
-    if(this.email === ''){
-      alert("Email is required.");
+    if(this.isEmpty(this.email)){
+      this.error ="Email is required.";
       return false;
     }
-    if(this.confirmEmail === ''){
-      alert("Email is required.");
+    if(this.isEmpty(this.confirmEmail)){
+      this.error = "Confirm email is required.";
       return false;
     }
     if (this.email !== this.confirmEmail) {
-      alert("The Email Addresses you entered do not match");
+      this.error = "The Email Addresses you entered do not match";
       return false;
     }
     return true;
+  }
+
+  isEmpty(value){
+    return typeof value === 'undefined' || value === '';
+  }
+
+  isNotEmpty(value){
+    return !this.isEmpty(value);
+  }
+
+  componentWillLoad() {
+      this.valid = true;
+  }
+
+  changedEmail(event){
+    this.email = event.target.value;
+  }
+
+  changedConfirmEmail(event){
+    this.confirmEmail = event.target.value;
   }
 
   render() {
@@ -59,11 +84,11 @@ export class PhplistSubscribeForm {
               <input type="hidden" name="formtoken" value={this.token} />
               <div class="form-label">Email</div>
               <div class="form-body-box">
-                <input type="text" maxlength="40" value={this.email}/>
+                <input type="text" name="email" maxlength="40" value={this.email} onInput={() => this.changedEmail(event)}/>
               </div>
               <div class="form-label">Confirm your email address</div>
               <div class="form-body-box">
-                <input type="text" maxlength="40" value={this.confirmEmail} />
+                <input type="text" name="emailconfirm" maxlength="40" value={this.confirmEmail} onInput={() => this.changedConfirmEmail(event)}/>
               </div>
               <div class="checkbox-container">
                 <span><input type="checkbox" name="htmlemail" value="1" checked /></span>
@@ -71,8 +96,9 @@ export class PhplistSubscribeForm {
               </div>
               <input type="hidden" name="list[3]" value="signup"/>
               <input type="hidden" name="VerificationCodeX" value="" maxlength="20"/>
+              <div class="alert alert-danger" style={{ display: this.valid ? 'none' : 'block' }}>{this.error}</div>
               <div class="submit-container">
-                <button class="submit-button" type="submit" name="subscribe" value="Subscribe" onClick={() => this.checkform()}/>
+                <button class="submit-button" onClick={(event) => this.submit(event)}>Subscribe</button>
               </div>
             </div>
           </form>

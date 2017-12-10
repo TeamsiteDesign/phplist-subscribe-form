@@ -22,7 +22,7 @@
     font-weight: normal;
   }
   .checkbox-container {
-    padding: 15px 0 0 0;
+    padding: 15px 0;
   }
   .submit-container {
     padding: 15px 0;
@@ -41,5 +41,15 @@
     letter-spacing: .04em;
     transition: all .15s ease;
     cursor: pointer;
+  }
+  .alert {
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+  }
+  .alert-danger {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
   }
 }
